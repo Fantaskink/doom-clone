@@ -96,9 +96,13 @@ int main()
     glDeleteShader(fragmentShader);
 
     float vertices[] = {
-        -0.5f, -0.5f, 0.0f,
-        0.5f, -0.5f, 0.0f,
-        0.0f, 0.5f, 0.0f};
+        -0.75f, -0.75f, 0.0f,
+        0.0f, -0.75f, 0.0f,
+        -0.375f, 0.0f, 0.0f,
+
+        0.0f, -0.75f, 0.0f,
+        0.75f, -0.75f, 0.0f,
+        0.375, 0.0f, 0.0f};
 
     unsigned int VBO, VAO; // Vertex buffer object
     glGenVertexArrays(1, &VAO);
@@ -111,6 +115,10 @@ int main()
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
     glEnableVertexAttribArray(0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+    glBindVertexArray(0);
 
     // render loop
     // -----------
@@ -125,7 +133,7 @@ int main()
 
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
