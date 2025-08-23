@@ -5,7 +5,7 @@ project(doom-clone C)
 set(CMAKE_C_STANDARD 99)
 
 # Compiler flags for warnings, color diagnostics, and debug info
-add_compile_options(-Wall -g -fdiagnostics-color=always)
+add_compile_options(-Wall -Werror -g -O2 -fdiagnostics-color=always)
 
 # Add include directories
 include_directories(${CMAKE_SOURCE_DIR}/include)
